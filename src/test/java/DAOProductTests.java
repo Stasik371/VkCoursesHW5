@@ -53,7 +53,7 @@ public class DAOProductTests {
         listOfProducts.add(new Product("Sneakers Nike", 1300));
         listOfProducts.add(new Product("Sneakers Reebok", 1301));
         listOfProducts.add(new Product("Jacket Reebok", 1400));
-        listOfProducts.add(new Product("Jacket Puma", 1401));
+        listOfProducts.add(new Product("Jacket  Puma", 1401));
         assertThat(listOfProducts, is(dao.all()));
     }
 
@@ -68,11 +68,12 @@ public class DAOProductTests {
     @Test
     @DisplayName("Checking update method")
     void updateMethodTestTrue() {
-        var product = new Product("Abibas", 1200);
-        dao.update(product);
-        assertThat(product, is(dao.get(product.getProductCode())));
-        var product2 = new Product("T-shirt Adidas", 1200);
-        dao.update(product2);
+        dao.save(testProduct);
+        testProduct.setNameOfProduct("Abibas");
+        dao.update(testProduct);
+        assertThat(testProduct, is(dao.get(testProduct.getProductCode())));
+        dao.delete(testProduct);
+
     }
 
     @Test

@@ -21,8 +21,8 @@ public class DAOOrganizations implements DAO<Organization> {
     String IDENTIFICATION_TAXPAYER_NUMBER = "ind_taxpayer_num";
     private final @NotNull
     String CHECKING_ACCOUNT = "checking_account";
-    private final String GET_BY_ID = "SELECT organizations_name, ind_taxpayer_num, checking_account\" +\n" +
-            "            \" FROM organizations WHERE ind_taxpayer_num = ";
+    private final String GET_BY_ID = "SELECT organizations_name, ind_taxpayer_num, checking_account" +
+            " FROM organizations WHERE ind_taxpayer_num = ";
     private final String GET_ALL_ORGANIZATIONS = "SELECT * FROM organizations";
     private final String SAVE_TO_DATABASE = "INSERT INTO organizations" +
             "(organizations_name, ind_taxpayer_num,checking_account) VALUES (?, ?, ?)";

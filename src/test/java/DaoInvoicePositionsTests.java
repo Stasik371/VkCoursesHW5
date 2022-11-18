@@ -36,7 +36,7 @@ public class DaoInvoicePositionsTests {
     @Test
     @DisplayName("Checking get method if entity in DataBase")
     void getMethodTestTrue() {
-        InvoicePosition invoicepos = new InvoicePosition(1, 1, 999, 50, 1200);
+        InvoicePosition invoicepos = new InvoicePosition(1, 1, 999, 500, 1200);
         assertThat(invoicepos, is(dao.get(invoicepos.getInvoiceId())));
     }
 
@@ -50,7 +50,7 @@ public class DaoInvoicePositionsTests {
     @DisplayName("Checking all method when entities in DataBase")
     void allMethodTest() {
         var listOfInvoicePositions = new ArrayList<InvoicePosition>();
-        listOfInvoicePositions.add(new InvoicePosition(1, 1, 999, 50, 1200));
+        listOfInvoicePositions.add(new InvoicePosition(1, 1, 999, 500, 1200));
         listOfInvoicePositions.add(new InvoicePosition(2, 1, 899, 150, 1201));
         listOfInvoicePositions.add(new InvoicePosition(3, 2, 4999, 300, 1300));
         listOfInvoicePositions.add(new InvoicePosition(4, 2, 12999, 400, 1400));

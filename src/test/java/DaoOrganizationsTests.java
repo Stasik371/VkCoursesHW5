@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.is;
 public class DaoOrganizationsTests {
     private static DAOOrganizations dao;
     private static final JDBCCredentials CREDS = JDBCCredentials.DEFAULT;
-    private static final Organization testOrganization = new Organization("Nothning", 788887,4545);
+    private static final Organization testOrganization = new Organization("Nothing", 788887,4545);
 
     @BeforeAll
     public static void creatingDao() {
@@ -71,8 +71,6 @@ public class DaoOrganizationsTests {
         dao.update(testOrganization);
         assertThat(testOrganization, is(dao.get(testOrganization.getIndTaxpayerNum())));
         dao.delete(testOrganization);
-        /*testOrganization.setOrganizationName("StreetBeat");
-        dao.update(testOrganization);*/
     }
 
     @Test

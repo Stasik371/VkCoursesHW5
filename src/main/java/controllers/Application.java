@@ -22,6 +22,7 @@ public class Application {
     public static void main(String[] args) throws SQLException {
         FlyWayInitializer.initDB();
         ReportCreator reportCreator = new ReportCreator();
+
         System.out.println("First Report");
         Product product = new Product("T-Shirt Nike", 1201); //hardcode
         System.out.println("organizations_name | ind_taxpayer_num | checking_account");
@@ -32,7 +33,6 @@ public class Application {
                     + "\t\t\t   " + org.getCheckingAccount());
         }
         System.out.println("-------------------+------------------+------------------\n");
-
 
         System.out.println("Second Report");
         Map<Integer, Integer> hashMapAmountProductCode = new HashMap<>();
@@ -52,10 +52,9 @@ public class Application {
         }
         System.out.println();
 
-
         System.out.println("Third Report");
-        Timestamp firstTimeStamp = new Timestamp(1_660_129_199_000L);
-        Timestamp secondTimeStamp = new Timestamp(1_668_081_600_000L);
+        Timestamp firstTimeStamp = new Timestamp(1_657_443_700_000L);
+        Timestamp secondTimeStamp = new Timestamp(1_668_081_600_001L);
         var mapForThirdReport = reportCreator.getSumPerDay(firstTimeStamp, secondTimeStamp);
         System.out.println("date_of_invoice | name_of_product | product_code | amount | price_for_one | price");
         System.out.println("----------------+-----------------+--------------+--------+---------------+---");
@@ -75,7 +74,6 @@ public class Application {
         }
         System.out.println("----------------+-----------------+--------------+--------+---------------+---");
 
-
         System.out.println("\nFourth Report");
         Integer averagePrice = reportCreator.averageValueBetween(firstTimeStamp, secondTimeStamp, product);
         System.out.println("| average_price |");
@@ -93,7 +91,7 @@ public class Application {
             System.out.println(entry.getKey().getOrganizationName()
                     + "\t\t\t" + entry.getKey().getIndTaxpayerNum()
                     + "\t\t\t   " + entry.getKey().getCheckingAccount());
-            System.out.println("---------------------------------------------------------");
+            System.out.println("\n");
             if (entry.getValue().size() < 1) {
                 System.out.println("Organization didn't deliver products during the period");
             } else {
@@ -103,7 +101,7 @@ public class Application {
                 }
             }
             System.out.println("-------------------+------------------+------------------");
-            System.out.println("-------------------+------------------+------------------");
+            System.out.println("-------------------+------------------+------------------\n");
         }
     }
 }
